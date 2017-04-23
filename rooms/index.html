@@ -587,7 +587,7 @@
     function update() {
 
 	console.log(getData());
-      interactive_plot.setData([getData()]);
+      interactive_plot.setData([getData().map((a,i)=>[i,a[1]])]);
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
       interactive_plot.draw();

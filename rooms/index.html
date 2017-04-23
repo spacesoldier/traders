@@ -110,7 +110,9 @@
 
         </div>
         <div class="col-xs-3">
-          <input type="button" style="  background: #3c763d;
+          <input 
+				id="bidupBtn",
+				type="button" style="  background: #3c763d;
 										border: 0;
 										color: white;
 										font-weight: bold;
@@ -118,7 +120,9 @@
 										padding: 10px 15px;
 										border-radius: 10px; margin-bottom: 20px; outline: 0; width: 156px; text-align: center;" 
 								value="Bid up" />
-          <input type="button" style="      background: red;
+          <input
+				id="biddownBtn",
+				type="button" style="      background: red;
 											border: 0;
 											color: white;
 											font-weight: bold;
@@ -409,6 +413,32 @@
 	  document.cookie = updatedCookie;
 	}
 
+	function bidUp(){
+		$.ajax({
+				url: "/nodered/bid/",
+				type: "POST",
+				data: {type:"up",bid:100}
+				success: function(result){
+				
+										}
+			});
+	}
+	
+	function bidDown(){
+		$.ajax({
+				url: "/nodered/bid/",
+				type: "POST",
+				data: {type:"down",bid:100}
+				success: function(result){
+				
+										}
+			});
+	}
+
+	function changeRoom(){
+		
+	}
+	
   $(function () {
     /*
      * Flot Interactive Chart

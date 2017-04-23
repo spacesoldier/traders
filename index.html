@@ -69,6 +69,7 @@
 				var babki = $("#icon_money").val();
 				 $.ajax({
 						url: "/nodered/newloser/",
+						type: 'POST',
 						data: {name: loser, money:babki},
 						success: function(result){
 									window.location = '/rooms';

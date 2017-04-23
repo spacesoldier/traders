@@ -413,13 +413,15 @@
 	  document.cookie = updatedCookie;
 	}
 
+	var myBalance = 0;
+	
 	function bidUp(){
 		$.ajax({
 				url: "/nodered/bid/",
 				type: "POST",
 				data: {type:"up",bid:100}
 				success: function(result){
-				
+											myBalance = result;
 										}
 			});
 	}
@@ -430,7 +432,7 @@
 				type: "POST",
 				data: {type:"down",bid:100}
 				success: function(result){
-				
+											myBalance = result;
 										}
 			});
 	}

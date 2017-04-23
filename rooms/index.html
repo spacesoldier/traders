@@ -441,7 +441,7 @@
 	var losername = "unknown";
 	
 	function checkBid(){
-	
+		
 	}
 	
 	function bidUp(){
@@ -472,7 +472,7 @@
 				type: "GET",
 				success: function(result){
 											myBalance = result.money;
-											$("#mybalance").text(myBalance);
+											$("#mybalance").text("<h3>"+myBalance+"</h3>");
 										}
 			});
 	}

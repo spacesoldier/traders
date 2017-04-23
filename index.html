@@ -1,5 +1,31 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Trader Buddies</title>
+	
+	
+	<!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="img/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="img/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="img/favicon.png">
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 	
 	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 	<style>
@@ -7,285 +33,169 @@
 		  width : 100%;
 		  height  : 500px;
 		}
+		
+		 #view-source {
+		  position: fixed;
+		  display: block;
+		  right: 0;
+		  bottom: 0;
+		  margin-right: 40px;
+		  margin-bottom: 40px;
+		  z-index: 900;
+		}
 	</style>
 </head>
 <body>
 
 	<h1>HeolWrlod!!!11oneone</h1>
-	<div id="chartdiv"></div>
+
+	  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Home</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search">
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+            </div>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item">About</li>
+            <li class="mdl-menu__item">Contact</li>
+            <li class="mdl-menu__item">Legal information</li>
+          </ul>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+          <img src="images/user.jpg" class="demo-avatar">
+          <div class="demo-avatar-dropdown">
+            <span>hello@example.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item">hello@example.com</li>
+              <li class="mdl-menu__item">info@example.com</li>
+              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+            </ul>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xlink:href="#piechart" mask="url(#piemask)" />
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan font-size="0.2" dy="-0.07">%</tspan></text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xlink:href="#piechart" mask="url(#piemask)" />
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xlink:href="#piechart" mask="url(#piemask)" />
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xlink:href="#piechart" mask="url(#piemask)" />
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+            </svg>
+          </div>
+          <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+              <use xlink:href="#chart" />
+            </svg>
+            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+              <use xlink:href="#chart" />
+            </svg>
+          </div>
+          <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+                <h2 class="mdl-card__title-text">Updates</h2>
+              </div>
+              <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                Non dolore elit adipisicing ea reprehenderit consectetur culpa.
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
+              </div>
+            </div>
+            <div class="demo-separator mdl-cell--1-col"></div>
+            <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+                <h3>View options</h3>
+                <ul>
+                  <li>
+                    <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                      <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
+                      <span class="mdl-checkbox__label">Click per object</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="chkbox2" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                      <input type="checkbox" id="chkbox2" class="mdl-checkbox__input">
+                      <span class="mdl-checkbox__label">Views per object</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="chkbox3" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                      <input type="checkbox" id="chkbox3" class="mdl-checkbox__input">
+                      <span class="mdl-checkbox__label">Objects selected</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="chkbox4" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                      <input type="checkbox" id="chkbox4" class="mdl-checkbox__input">
+                      <span class="mdl-checkbox__label">Objects viewed</span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50">Change location</a>
+                <div class="mdl-layout-spacer"></div>
+                <i class="material-icons">location_on</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+      <a href="http://zombo.com" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">View Source</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	
+	
 	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
 	<script src="https://www.amcharts.com/lib/3/amstock.js"></script>
 	<script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-	
-	<script type="text/javascript">
-		var chart = AmCharts.makeChart( "chartdiv", {
-													    "type": "stock",
-														"theme": "light",
 
-													  //"color": "#fff",
-													  "dataSets": [ {
-														"title": "MSFT",
-														"fieldMappings": [ {
-														  "fromField": "Open",
-														  "toField": "open"
-														}, {
-														  "fromField": "High",
-														  "toField": "high"
-														}, {
-														  "fromField": "Low",
-														  "toField": "low"
-														}, {
-														  "fromField": "Close",
-														  "toField": "close"
-														}, {
-														  "fromField": "Volume",
-														  "toField": "volume"
-														} ],
-														"compared": false,
-														"categoryField": "Date",
-
-														/**
-														 * data loader for data set data
-														 */
-														"dataLoader": {
-														  "url": "https://www.amcharts.com/wp-content/uploads/assets/stock/MSFT.csv",
-														  "format": "csv",
-														  "showCurtain": true,
-														  "showErrors": true,
-														  "async": true,
-														  "reverse": true,
-														  "delimiter": ",",
-														  "useColumnNames": true
-														},
-
-														/**
-														 * data loader for events data
-														 */
-														"eventDataLoader": {
-														  "url": "https://www.amcharts.com/wp-content/uploads/assets/stock/MSFT_events.csv",
-														  "format": "csv",
-														  "showCurtain": true,
-														  "showErrors": true,
-														  "async": true,
-														  "reverse": true,
-														  "delimiter": ",",
-														  "useColumnNames": true,
-														  "postProcess": function( data ) {
-															for ( var x in data ) {
-															  switch ( data[ x ].Type ) {
-																case 'A':
-																  var color = "#85CDE6";
-																  break;
-																default:
-																  var color = "#cccccc";
-																  break;
-															  }
-															  data[ x ].Description = data[ x ].Description.replace( "Upgrade", "<strong style=\"color: #0c0\">Upgrade</strong>" ).replace( "Downgrade", "<strong style=\"color: #c00\">Downgrade</strong>" );
-															  data[ x ] = {
-																"type": "pin",
-																"graph": "g1",
-																"backgroundColor": color,
-																"date": data[ x ].Date,
-																"text": data[ x ].Type,
-																"description": "<strong>" + data[ x ].Title + "</strong><br />" + data[ x ].Description
-															  };
-															}
-															return data;
-														  }
-														}
-
-													  }, {
-														"title": "TXN",
-														"fieldMappings": [ {
-														  "fromField": "Open",
-														  "toField": "open"
-														}, {
-														  "fromField": "High",
-														  "toField": "high"
-														}, {
-														  "fromField": "Low",
-														  "toField": "low"
-														}, {
-														  "fromField": "Close",
-														  "toField": "close"
-														}, {
-														  "fromField": "Volume",
-														  "toField": "volume"
-														} ],
-														"compared": true,
-														"categoryField": "Date",
-														"dataLoader": {
-														  "url": "https://www.amcharts.com/wp-content/uploads/assets/stock/TXN.csv",
-														  "format": "csv",
-														  "showCurtain": true,
-														  "showErrors": true,
-														  "async": true,
-														  "reverse": true,
-														  "delimiter": ",",
-														  "useColumnNames": true
-														}
-													  } ],
-													  "dataDateFormat": "YYYY-MM-DD",
-
-													  "panels": [ {
-														  "title": "Value",
-														  "percentHeight": 70,
-
-														  "stockGraphs": [ {
-															"type": "candlestick",
-															"id": "g1",
-															"openField": "open",
-															"closeField": "close",
-															"highField": "high",
-															"lowField": "low",
-															"valueField": "close",
-															"lineColor": "#fff",
-															"fillColors": "#fff",
-															"negativeLineColor": "#db4c3c",
-															"negativeFillColors": "#db4c3c",
-															"fillAlphas": 1,
-															"comparedGraphLineThickness": 2,
-															"columnWidth": 0.7,
-															"useDataSetColors": false,
-															"comparable": true,
-															"compareField": "close",
-															"showBalloon": false,
-															"proCandlesticks": true
-														  } ],
-
-														  "stockLegend": {
-															"valueTextRegular": undefined,
-															"periodValueTextComparing": "[[percents.value.close]]%"
-														  }
-
-														},
-
-														{
-														  "title": "Volume",
-														  "percentHeight": 30,
-														  "marginTop": 1,
-														  "columnWidth": 0.6,
-														  "showCategoryAxis": false,
-
-														  "stockGraphs": [ {
-															"valueField": "volume",
-															"openField": "open",
-															"type": "column",
-															"showBalloon": false,
-															"fillAlphas": 1,
-															"lineColor": "#fff",
-															"fillColors": "#fff",
-															"negativeLineColor": "#db4c3c",
-															"negativeFillColors": "#db4c3c",
-															"useDataSetColors": false
-														  } ],
-
-														  "stockLegend": {
-															"markerType": "none",
-															"markerSize": 0,
-															"labelText": "",
-															"periodValueTextRegular": "[[value.close]]"
-														  },
-
-														  "valueAxes": [ {
-															"usePrefixes": true
-														  } ]
-														}
-													  ],
-
-													  "panelsSettings": {
-														//    "color": "#fff",
-														"plotAreaFillColors": "#333",
-														"plotAreaFillAlphas": 1,
-														"marginLeft": 60,
-														"marginTop": 5,
-														"marginBottom": 5
-													  },
-
-													  "chartScrollbarSettings": {
-														"graph": "g1",
-														"graphType": "line",
-														"usePeriod": "WW",
-														"backgroundColor": "#333",
-														"graphFillColor": "#666",
-														"graphFillAlpha": 0.5,
-														"gridColor": "#555",
-														"gridAlpha": 1,
-														"selectedBackgroundColor": "#444",
-														"selectedGraphFillAlpha": 1
-													  },
-
-													  "categoryAxesSettings": {
-														"equalSpacing": true,
-														"gridColor": "#555",
-														"gridAlpha": 1
-													  },
-
-													  "valueAxesSettings": {
-														"gridColor": "#555",
-														"gridAlpha": 1,
-														"inside": false,
-														"showLastLabel": true
-													  },
-
-													  "chartCursorSettings": {
-														"pan": true,
-														"valueLineEnabled": true,
-														"valueLineBalloonEnabled": true
-													  },
-
-													  "legendSettings": {
-														//"color": "#fff"
-													  },
-
-													  "stockEventsSettings": {
-														"showAt": "high",
-														"type": "pin"
-													  },
-
-													  "balloon": {
-														"textAlign": "left",
-														"offsetY": 10
-													  },
-
-													  "periodSelector": {
-														"position": "bottom",
-														"periods": [ {
-															"period": "DD",
-															"count": 10,
-															"label": "10D"
-														  }, {
-															"period": "MM",
-															"count": 1,
-															"label": "1M"
-														  }, {
-															"period": "MM",
-															"count": 6,
-															"label": "6M"
-														  }, {
-															"period": "YYYY",
-															"count": 1,
-															"label": "1Y"
-														  }, {
-															"period": "YYYY",
-															"count": 2,
-															"selected": true,
-															"label": "2Y"
-														  },
-														  /* {
-															   "period": "YTD",
-															   "label": "YTD"
-															 },*/
-														  {
-															"period": "MAX",
-															"label": "MAX"
-														  }
-														]
-													  }
-													} );
-	</script>
 </body>
 </html>

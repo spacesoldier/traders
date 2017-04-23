@@ -623,7 +623,7 @@
 	// getting data from server every second    
 	var timerId = setInterval(function() {
 		  getStockData();
-	}, 2000);
+	}, 500);
 	
 
     interactive_plot = $.plot("#interactive", [getData()], {

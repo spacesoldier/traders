@@ -110,20 +110,22 @@
 
         </div>
         <div class="col-xs-3">
-          <input type="button" style="    background: #3c763d;
-    border: 0;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    border-radius: 10px; margin-bottom: 20px; outline: 0; width: 156px; text-align: center;" value="Проебать вверх" />
-          <input type="button" style="    background: red;
-    border: 0;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    border-radius: 10px; outline: 0; width: 156px; text-align: center;" value="Проебать вниз" />
+          <input type="button" style="  background: #3c763d;
+										border: 0;
+										color: white;
+										font-weight: bold;
+										text-transform: uppercase;
+										padding: 10px 15px;
+										border-radius: 10px; margin-bottom: 20px; outline: 0; width: 156px; text-align: center;" 
+								value="Bid up" />
+          <input type="button" style="      background: red;
+											border: 0;
+											color: white;
+											font-weight: bold;
+											text-transform: uppercase;
+											padding: 10px 15px;
+											border-radius: 10px; outline: 0; width: 156px; text-align: center;" 
+								value="Bid down" />
         </div>
         <!-- /.col -->
       </div>
@@ -150,11 +152,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+
   </footer>
 
   <!-- Control Sidebar -->
@@ -414,13 +412,19 @@
 	  return data;
 	}
 	
+	var timefrom = 0;
+	
 	function getStockData() {
       if (data.length > 0)
         data = data.slice(1);
 	 
-	  $.ajax({url: "/nodered/getstock/AA", success: function(result){
-			data.push(50);
-	  }});
+	  $.ajax({
+				url: "/nodered/getstock/A/"+timefrom,
+				type: "GET",
+				success: function(result){
+											timefrom = result.ts;
+										}
+			});
     
     }
 	

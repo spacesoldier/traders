@@ -470,7 +470,6 @@
 		$.ajax({
 				url: "/nodered/getmoney",
 				type: "GET",
-				data: {type:"down",bid:bidSize},
 				success: function(result){
 											myBalance = result.money;
 											$("#mybalance").val(myBalance);
@@ -561,7 +560,7 @@
 	// getting data from server every second    
 	var timerId = setInterval(function() {
 		  getStockData();
-	}, 1000);
+	}, 2000);
 	
 
     var interactive_plot = $.plot("#interactive", [getData()], {
@@ -588,7 +587,7 @@
       }
     });
 
-    var updateInterval = 500; //Fetch data ever x milliseconds
+    var updateInterval = 2000; //Fetch data ever x milliseconds
     var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
     function update() {
 

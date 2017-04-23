@@ -68,7 +68,7 @@
 				var loser = $("#icon_prefix").val();
 				var babki = $("#icon_money").val();
 				 $.ajax({
-						url: "/nodered/newloser/",
+						url: "http://traderbuddies.ru:880/nodered/newloser/",
 						type: 'POST',
 						data: {name: loser, money:babki},
 						success: function(result){

@@ -506,14 +506,14 @@
 	function listUsers(){
 		$("#getUsers").html("");
 		var userListHtml = "";
-		userListHtml = userListHtml.append("<div class='row'>");
+		userListHtml = userListHtml.concat("<div class='row'>");
 		for ( var usr in userlist){
 			
-			userListHtml = userListHtml.append("<div class='col-xs-8'>"+usr.name+"</div>");
-			userListHtml = userListHtml.append("<div class='col-xs-4'>"+usr.balance+"</div>");
+			userListHtml = userListHtml.concat("<div class='col-xs-8'>"+usr.name+"</div>");
+			userListHtml = userListHtml.concat("<div class='col-xs-4'>"+usr.balance+"</div>");
 			
 		}
-		userListHtml = userListHtml.append("</div>");
+		userListHtml = userListHtml.concat("</div>");
 	}
 	
 	function getUsers(room){

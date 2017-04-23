@@ -472,20 +472,13 @@
 				type: "GET",
 				success: function(result){
 											myBalance = result.money;
-											$("#mybalance").val(myBalance);
+											$("#mybalance").text(myBalance);
 										}
 			});
 	}
 
 	function changeRoom(){
-		$.ajax({
-				url: "/nodered/bid/",
-				type: "POST",
-				data: {type:"down",bid:bidSize},
-				success: function(result){
-											myBalance = result;
-										}
-			});
+		askBalance();
 	}
 	
 

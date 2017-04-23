@@ -523,7 +523,7 @@
 				type: "GET",
 				success: function(result){
 											if (room < result.rooms.length){
-												result.rooms[room].forEach(function(usr, i, arr){
+												result.rooms[room].users.forEach(function(usr, i, arr){
 													userlist.push({
 														name: usr.name,
 														balance: usr.money

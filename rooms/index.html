@@ -504,7 +504,7 @@
 	var userlist = [];
 	
 	function listUsers(){
-		$("#getUsers").html("");
+		$("#userlist").html("");
 		var userListHtml = "";
 		userListHtml = userListHtml.concat("<div class='row'>");
 		for ( var usr in userlist){
@@ -514,7 +514,7 @@
 			
 		}
 		userListHtml = userListHtml.concat("</div>");
-		$("#getUsers").html(userListHtml);
+		$("#userlist").html(userListHtml);
 	}
 	
 	function getUsers(room){

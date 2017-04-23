@@ -158,7 +158,7 @@
 
       <div class="row">
         
-        <div class="col-md-4">
+        <div id="userlist" class="col-md-4">
           sdaf
         </div>
         <div class="col-md-4">
@@ -501,6 +501,39 @@
 		askBalance();
 	}
 	
+	var userlist = [];
+	
+	function listUsers(){
+		$("#getUsers").html("");
+		var userListHtml = "";
+		userListHtml = userListHtml.append("<div class='row'>");
+		for ( var usr in userlist){
+			
+			userListHtml = userListHtml.append("<div class='col-xs-8'>"+usr.name+"</div>");
+			userListHtml = userListHtml.append("<div class='col-xs-4'>"+usr.balance+"</div>");
+			
+		}
+		userListHtml = userListHtml.append("</div>");
+	}
+	
+	function getUsers(room){
+		$.ajax({
+				url: "/nodered/getrooms",
+				type: "GET",
+				success: function(result){
+											if (room < result.rooms.length){
+												for (var usr in result.rooms[room].users){
+													userlist.push({
+														name: usr.name,
+														balance: usr.money
+													});
+												}
+												listUsers();
+											}
+										 }
+			});
+	}
+	
   var data = [], totalPoints = 100;
   var interactive_plot;
 	
@@ -517,6 +550,8 @@
 									bidSize = $("#bidsize").val();
 								}
 	);
+	
+	getUsers(0);
 	
 	askBalance();
 	

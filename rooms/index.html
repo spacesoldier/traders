@@ -419,7 +419,7 @@
 		$.ajax({
 				url: "/nodered/bid/",
 				type: "POST",
-				data: {type:"up",bid:100}
+				data: {type:"up",bid:100},
 				success: function(result){
 											myBalance = result;
 										}
@@ -430,7 +430,7 @@
 		$.ajax({
 				url: "/nodered/bid/",
 				type: "POST",
-				data: {type:"down",bid:100}
+				data: {type:"down",bid:100},
 				success: function(result){
 											myBalance = result;
 										}

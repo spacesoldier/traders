@@ -588,8 +588,10 @@
     var updateInterval = 100; //Fetch data ever x milliseconds
     var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
     function update() {
-
-	  interactive_plot.setData([getData().map((a,i)=>[i,a[1]])]);
+		interactive_plot.getOptions().yaxes[0].min=getData().reduce((p,c)=>p>c[1]?c[1]:p,1e16)-2;
+		interactive_plot.getOptions().yaxes[0].max=getData().reduce((p,c)=>p<c[1]?c[1]:p,0)+2;
+		interactive_plot.setData([getData().map((a,i)=>[i,a[1]])]);
+		interactive_plot.setupGrid();
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
       interactive_plot.draw();

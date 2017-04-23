@@ -546,7 +546,7 @@
 				success: function(result){
 											if (data.length > totalPoints)
 												data = data.slice(1);
-											data.push(result.A);
+											data.push([data.length,result.A]);
 										}
 			});
 		
@@ -587,7 +587,7 @@
     function update() {
 
 	console.log(getData());
-      interactive_plot.setData([getRandomData()]);
+      interactive_plot.setData([getData()]);
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
       interactive_plot.draw();

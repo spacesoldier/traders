@@ -80,21 +80,27 @@
         Room #1
         <small>USD once a second</small>
       </h1>
-
-	 <input id="bidsize" type="text" name="baksi">
-     <input id="setbid" 
-			type="button" 
-			
-			style="  background: #3c763d;
-					 border: 0;
-					 color: white;
-					 font-weight: bold;
-					 text-transform: uppercase;
-					 padding: 5px 5px;
-					 border-radius: 3px; margin-bottom: 5px; outline: 0; width: 156px; text-align: center;" 
+	  <div class="row">
+		<div class="col-xs-6">
+			<input id="bidsize" type="text" name="baksi">
+			 <input id="setbid" 
+					type="button" 
+					
+					style="  background: #3c763d;
+							 border: 0;
+							 color: white;
+							 font-weight: bold;
+							 text-transform: uppercase;
+							 padding: 5px 5px;
+							 border-radius: 3px; margin-bottom: 5px; outline: 0; width: 156px; text-align: center;" 
+			 
+					value="set bid">
+		</div>
+		
+		<div id="mybalance" class="col-xs-4 col-xs-offset-2">100500</div>
+	  </div>
 	 
-			value="set bid">
-	 <div id="mybalance">100500</div>
+	 
     </section>
 
     <!-- Main content -->
@@ -432,6 +438,7 @@
 	
 	var bidSize = 100;
 	var bidDone = false;
+	var losername = "unknown";
 	
 	function checkBid(){
 	
@@ -439,7 +446,7 @@
 	
 	function bidUp(){
 		$.ajax({
-				url: "/nodered/bid/",
+				url: "/nodered/bid",
 				type: "POST",
 				data: {type:"up",bid:bidSize},
 				success: function(result){
@@ -450,8 +457,19 @@
 	
 	function bidDown(){
 		$.ajax({
-				url: "/nodered/bid/",
+				url: "/nodered/bid",
 				type: "POST",
+				data: {type:"down",bid:bidSize},
+				success: function(result){
+											myBalance = result.money;
+										}
+			});
+	}
+	
+	function askBalance(){
+		$.ajax({
+				url: "/nodered/getmoney",
+				type: "GET",
 				data: {type:"down",bid:bidSize},
 				success: function(result){
 											myBalance = result;
@@ -460,8 +478,17 @@
 	}
 
 	function changeRoom(){
-		
+		$.ajax({
+				url: "/nodered/bid/",
+				type: "POST",
+				data: {type:"down",bid:bidSize},
+				success: function(result){
+											myBalance = result;
+										}
+			});
 	}
+	
+
 	
   $(function () {
     /*
@@ -469,7 +496,7 @@
      * -----------------------
      */
 	
-	var losername = getCookie("loser");
+	losername = getCookie("loser");
 	$("#losername").text(losername);
 	
 	$("#setbid").click(function(){}

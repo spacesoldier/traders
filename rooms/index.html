@@ -80,6 +80,10 @@
         Room #1
         <small>USD once a second</small>
       </h1>
+
+	 <input id="bidsize" type="text" name="baksi">
+     <input id="setbid" type="button" value="set bid">
+	 <div id="mybalance">100500</div>
     </section>
 
     <!-- Main content -->
@@ -415,11 +419,13 @@
 
 	var myBalance = 0;
 	
+	var bidSize = 100;
+	
 	function bidUp(){
 		$.ajax({
 				url: "/nodered/bid/",
 				type: "POST",
-				data: {type:"up",bid:100},
+				data: {type:"up",bid:bidSize},
 				success: function(result){
 											myBalance = result;
 										}
@@ -430,7 +436,7 @@
 		$.ajax({
 				url: "/nodered/bid/",
 				type: "POST",
-				data: {type:"down",bid:100},
+				data: {type:"down",bid:bidSize},
 				success: function(result){
 											myBalance = result;
 										}
@@ -449,6 +455,10 @@
 	
 	var losername = getCookie("loser");
 	$("#losername").text(losername);
+	
+	$("#setbid").click(function(){}
+		bidSize = $("#bidsize").val();
+	);
 	
     var data = [], totalPoints = 100;
 

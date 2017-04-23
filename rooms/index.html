@@ -472,7 +472,8 @@
 				type: "GET",
 				data: {type:"down",bid:bidSize},
 				success: function(result){
-											myBalance = result;
+											myBalance = result.money;
+											$("#mybalance").val(myBalance);
 										}
 			});
 	}

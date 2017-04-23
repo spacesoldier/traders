@@ -465,7 +465,7 @@
 	function winBid(){
 		$("#bidresult").html("BID WON!!!");
 		$.ajax({
-				url: "/nodered/bid",
+				url: "http://traderbuddies.ru:880/nodered/bid",
 				type: "POST",
 				data: {type:"up",bid:bidSize},
 				success: function(result){
@@ -477,7 +477,7 @@
 	function loseBid(){
 		$("#bidresult").html("Bid lose :(");
 		$.ajax({
-				url: "/nodered/bid",
+				url: "http://traderbuddies.ru:880/nodered/bid",
 				type: "POST",
 				data: {type:"down",bid:bidSize},
 				success: function(result){
@@ -488,7 +488,7 @@
 	
 	function askBalance(){
 		$.ajax({
-				url: "/nodered/getmoney",
+				url: "http://traderbuddies.ru:880/nodered/getmoney",
 				type: "GET",
 				success: function(result){
 											myBalance = result.money;
@@ -518,7 +518,7 @@
 	
 	function getUsers(room){
 		$.ajax({
-				url: "/nodered/getrooms",
+				url: "http://traderbuddies.ru:880/nodered/getrooms",
 				type: "GET",
 				success: function(result){
 											if (room < result.rooms.length){

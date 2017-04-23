@@ -78,7 +78,7 @@
     <section class="content-header">
       <h1>
         Room #1
-        <small>USD once a second</small>
+        <small>USD once a minute</small>
       </h1>
 	  <div class="row">
 		<div class="col-xs-6">
@@ -586,7 +586,8 @@
     var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
     function update() {
 
-      interactive_plot.setData([getData()]);
+	console.log(getData());
+      interactive_plot.setData([getRandomData()]);
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
       interactive_plot.draw();

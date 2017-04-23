@@ -544,6 +544,8 @@
 				url: "/nodered/getstock/A",
 				type: "GET",
 				success: function(result){
+											if (data.length > totalPoints)
+												data = data.slice(1);
 											data.push(result.A);
 										}
 			});

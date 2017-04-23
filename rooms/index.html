@@ -420,6 +420,11 @@
 	var myBalance = 0;
 	
 	var bidSize = 100;
+	var bidDone = false;
+	
+	function checkBid(){
+	
+	}
 	
 	function bidUp(){
 		$.ajax({
@@ -502,7 +507,7 @@
         data = data.slice(1);
 	 /*
 	  $.ajax({
-				url: "/nodered/getstock/A/"+timefrom,
+				url: "/nodered/getstock/A",
 				type: "GET",
 				success: function(result){
 											timefrom = result.ts;
